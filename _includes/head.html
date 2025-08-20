@@ -1,0 +1,23 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <title>{{ site.title }}&nbsp;&mdash;&nbsp;{%- if page.title -%}{{ page.title }}{%- else -%}{{ post.title }}{%- endif -%}</title>
+
+  {%- comment -%}
+  Skin switcher: set `skin: metalab` in _config.yml to use the new CSS.
+  Defaults to existing 2023 CSS if not set.
+  {%- endcomment -%}
+  {%- if site.skin == 'metalab' -%}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {# Local system font stack will be used if offline #}
+    <link rel="stylesheet" href="/assets/metalab/metalab.css">
+  {%- else -%}
+    <link rel="stylesheet" type="text/css" href="/css23/grid.css">
+    <link rel="stylesheet" type="text/css" href="/css23/typography.css">
+    <link rel="stylesheet" type="text/css" href="/css23/posts-index.css">
+    <link rel="stylesheet" type="text/css" href="/css23/leadership.css">
+  {%- endif -%}
+</head>
+

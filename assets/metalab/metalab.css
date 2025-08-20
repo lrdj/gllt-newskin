@@ -1,0 +1,116 @@
+/*
+  Metalab-inspired skin (lightweight, local-only).
+  Purpose: approximate spacing, typography, and cleanliness without copying vendor code.
+  Toggle via `skin: metalab` in _config.yml.
+*/
+
+/* CSS custom properties */
+:root {
+  --mlb-bg: #ffffff;
+  --mlb-fg: #0e0e10;           /* near-black */
+  --mlb-muted: #6b7280;        /* gray-500 */
+  --mlb-border: #e5e7eb;       /* gray-200 */
+  --mlb-accent: #5b6cff;       /* modern blue */
+  --mlb-accent-2: #111827;     /* slate-900 */
+
+  --mlb-radius: 14px;
+  --mlb-radius-sm: 10px;
+
+  --mlb-maxw: 1120px;
+  --mlb-pad: clamp(16px, 3vw, 32px);
+  --mlb-pad-lg: clamp(28px, 6vw, 72px);
+  --mlb-leading: 1.6;
+}
+
+/* Base reset-ish */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  color: var(--mlb-fg);
+  background: var(--mlb-bg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: var(--mlb-leading);
+  font-weight: 400;
+}
+
+img, video, svg { max-width: 100%; height: auto; }
+
+/* Layout helpers */
+.container { width: 100%; max-width: var(--mlb-maxw); margin: 0 auto; padding: 0 var(--mlb-pad); }
+.section { padding: var(--mlb-pad-lg) 0; }
+.stack > * + * { margin-top: 1.1em; }
+
+/* Header (works with existing markup) */
+header {
+  background: var(--mlb-bg);
+  border-bottom: 1px solid var(--mlb-border);
+  height: auto;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px var(--mlb-pad);
+}
+
+@media (min-width: 1024px) {
+  header { padding: 10px calc((100vw - var(--mlb-maxw)) / 2 + var(--mlb-pad)); }
+}
+
+#headernavLinks a { display: inline-flex; align-items: center; padding: 8px 10px; border: 0; background: transparent; }
+#headernavLinks img { height: 18px; opacity: 0.8; transition: opacity .2s ease; }
+#headernavLinks a:hover img { opacity: 1; }
+
+/* Header brand text */
+#identity .brand { font-weight: 700; font-size: 16px; margin-left: 12px; letter-spacing: -0.01em; }
+
+/* Typography */
+h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.15; margin: 0 0 0.4em 0; }
+h1 { font-size: clamp(36px, 6vw, 60px); font-weight: 700; }
+h2 { font-size: clamp(28px, 4.5vw, 40px); font-weight: 700; }
+h3 { font-size: clamp(22px, 3.5vw, 28px); font-weight: 600; }
+p { margin: 0 0 1em 0; color: var(--mlb-fg); }
+.lead { font-size: clamp(18px, 2.3vw, 22px); color: var(--mlb-accent-2); }
+.muted { color: var(--mlb-muted); }
+
+a { color: var(--mlb-fg); text-decoration: underline; text-decoration-color: rgba(17,24,39,.25); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--mlb-fg); }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px; cursor: pointer; text-decoration: none; user-select: none;
+  padding: 12px 18px; border-radius: 999px; border: 1px solid var(--mlb-border);
+  background: #f9fafb; color: var(--mlb-fg); transition: background .2s, border-color .2s, transform .02s;
+}
+.btn:hover { background: #f3f4f6; border-color: #d1d5db; }
+.btn:active { transform: translateY(1px); }
+.btn.primary { background: var(--mlb-fg); color: white; border-color: var(--mlb-fg); }
+.btn.primary:hover { background: #1f2937; border-color: #1f2937; }
+
+/* Cards */
+.card { border: 1px solid var(--mlb-border); border-radius: var(--mlb-radius); padding: 20px; background: white; box-shadow: 0 1px 0 rgba(0,0,0,0.04); }
+.card > *:first-child { margin-top: 0; }
+.card > *:last-child { margin-bottom: 0; }
+
+/* Footer */
+footer.wrapper { border-top: 1px solid var(--mlb-border); padding: var(--mlb-pad) var(--mlb-pad); margin-top: var(--mlb-pad); }
+#siteFooterDivider { display: none; }
+#siteFooterSlug { color: var(--mlb-muted); font-size: 0.9rem; }
+.social-media-list { display: flex; flex-direction: column; gap: 6px; padding: 0; list-style: none; }
+.social-media-list a { color: var(--mlb-muted); text-decoration: none; }
+.social-media-list a:hover { color: var(--mlb-fg); }
+
+/* Content specifics that exist today */
+main img { border-radius: var(--mlb-radius-sm); }
+nav.first { border: 0; height: 10px; }
+.wrapper { padding: 0 var(--mlb-pad); }
+
+/* Article list helpers (existing classes) */
+.article-list article h2,
+.article-list article h2 a,
+.article-list article p { text-decoration: none; color: var(--mlb-fg); }
+
+/* Pagination minimal */
+nav#postPagination { text-align: center; padding: 24px 0 0; }
+.pagination .button, .load-more.button { composes: btn from none; }

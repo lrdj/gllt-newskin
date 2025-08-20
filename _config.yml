@@ -5,6 +5,9 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
+# Skin switcher: set to 'metalab' to use new CSS skin
+skin: metalab
+
 github_username:  lrdj
 linkedin_username: goodlookslikethis
 mastodon_link: "https://mastodon.social/@donkeyontheedge"
@@ -59,4 +62,3 @@ collections:
   cases_remote:
     output: true
     permalink: /cases/remote/:name
-
