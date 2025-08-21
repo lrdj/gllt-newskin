@@ -205,7 +205,14 @@ nav#postPagination { text-align: center; padding: 24px 0 0; }
 /* Media helpers */
 .ratio-16x9 { position: relative; width: 100%; padding-top: 56.25%; border-radius: var(--mlb-radius-sm); overflow: hidden; background-color: #e5e7eb; }
 .ratio-16x9.cover::before { content: ""; position: absolute; inset: 0; background-size: cover; background-position: center; background-image: var(--bg); }
+.ratio-16x9.cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(88,77,255,.08), rgba(88,77,255,.08)); opacity: 0; transition: opacity .25s ease; mix-blend-mode: multiply; }
 .block { display: block; }
+
+/* Card hover tint and lift */
+.case-card { transition: border-color .2s ease, box-shadow .2s ease; }
+.case-card:hover { border-color: var(--mlb-accent); box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+.case-card:hover .ratio-16x9.cover::before { transform: scale(1.02); transition: transform .25s ease; }
+.case-card:hover .ratio-16x9.cover::after { opacity: .5; }
 
 /* Grid utilities */
 .mlb-container { width: 100%; max-width: var(--mlb-maxw); margin: 0 auto; padding: 0 var(--mlb-pad); }

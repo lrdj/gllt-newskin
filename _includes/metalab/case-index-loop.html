@@ -1,0 +1,45 @@
+{% comment %}
+  Metalab-styled case index loop
+  Uses page.parent to choose the collection (e.g., cases_sdingov)
+{% endcomment %}
+
+{% assign cases = site[page.parent] %}
+
+<section class="section">
+  <div class="mlb-grid">
+  {% assign first = true %}
+  {% for case in cases %}
+    {% unless case.path contains "index.html" or case.tags contains "exception" %}
+      {% assign image = case.index_image | default: case.hero_image %}
+      {% if first %}
+        <article class="col-12 card case-card">
+          {% if image %}
+          <a href="{{ case.url }}" class="block" aria-label="{{ case.title }}">
+            <div class="ratio-16x9 cover" style="--bg:url('{{ image }}');"></div>
+          </a>
+          {% endif %}
+          <div class="stack">
+            <h2><a href="{{ case.url }}">{{ case.title }}</a></h2>
+            {% if case.subtitle %}<p class="lede">{{ case.subtitle }}</p>{% endif %}
+            <p><a class="btn" href="{{ case.url }}">View case study</a></p>
+          </div>
+        </article>
+        {% assign first = false %}
+      {% else %}
+        <article class="col-12 md-col-6 card case-card">
+          {% if image %}
+          <a href="{{ case.url }}" class="block" aria-label="{{ case.title }}">
+            <div class="ratio-16x9 cover" style="--bg:url('{{ image }}');"></div>
+          </a>
+          {% endif %}
+          <div class="stack">
+            <h3><a href="{{ case.url }}">{{ case.title }}</a></h3>
+            {% if case.subtitle %}<p class="muted">{{ case.subtitle }}</p>{% endif %}
+          </div>
+        </article>
+      {% endif %}
+    {% endunless %}
+  {% endfor %}
+  </div>
+</section>
+

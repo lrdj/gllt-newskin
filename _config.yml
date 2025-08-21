@@ -6,7 +6,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Skin switcher: set to 'metalab' to use new CSS skin
-skin: metalab
+# skin: metalab
 # Theme variant for the metalab skin: 'light' or 'dark'
 skin_theme: light
 

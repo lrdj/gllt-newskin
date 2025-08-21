@@ -16,8 +16,11 @@ bodyclass: "cases"
 
   {% include 2023/cases-header-submenu.html %}
   
-  {% include 2023/case-index-loop.html %}
+  {% if site.skin == 'metalab' %}
+    {% include metalab/case-index-loop.html %}
+  {% else %}
+    {% include 2023/case-index-loop.html %}
+  {% endif %}
   
     </section>
 </main>
-
