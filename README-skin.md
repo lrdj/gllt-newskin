@@ -5,6 +5,9 @@ What changed
 - Added a skin switch via `site.skin` in `_config.yml`.
 - New include `_includes/head.html` loads CSS based on the skin.
 - New CSS scaffold at `assets/metalab/metalab.css` to approximate a Metalab-like look.
+ - Local fonts (Inter + DM Serif Display) bundled for improved typography.
+ - Theme toggle button in the Metalab header with sun/moon and persistence.
+ - Grid utilities: 12-col CSS grid helpers (`mlb-container`, `mlb-grid`, `col-*`).
 
 How to toggle
 - Use the Metalab skin: set `skin: metalab` in `_config.yml` (already set).
@@ -27,3 +30,8 @@ Fetched reference (for derivation only)
 - HTML: `assets/metalab/_fetched/home.html`
 - CSS: `assets/metalab/_fetched/main.css`
 - Derived tokens used: accent `#584dff`, border `#c7c7c7`, subtle text `#79767a`, rounded corners ~`8–12px`, spacing unit `1.6rem` equivalents.
+
+Utilities and classes
+- Container: wrap sections in `mlb-container`.
+- Grid: add `mlb-grid` to a container then use `col-12/6/4/3` plus responsive `md-col-*`, `lg-col-*`.
+- Typography: `kicker`, `eyebrow`, `lede`, `overline` for emphasis.
