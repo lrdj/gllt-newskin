@@ -3,7 +3,7 @@
 
   {%- include head.html -%}
 
-  <body class="{{ page.bodyclass }}">
+  <body class="{{ page.bodyclass }}"{% if site.skin == 'metalab' and site.skin_theme %} data-skin-theme="{{ site.skin_theme }}"{% endif %}>
     {%- if site.skin == 'metalab' -%}
       {%- include metalab/header.html -%}
     {%- else -%}

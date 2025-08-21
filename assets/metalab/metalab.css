@@ -21,6 +21,11 @@
   --mlb-pad: clamp(16px, 3vw, 32px);
   --mlb-pad-lg: clamp(28px, 6vw, 72px);
   --mlb-leading: 1.6;
+
+  /* Buttons */
+  --mlb-btn-bg: #f9fafb;
+  --mlb-btn-bg-hover: #f3f4f6;
+  --mlb-btn-border: var(--mlb-border);
 }
 
 /* Base reset-ish */
@@ -80,10 +85,10 @@ a:hover { text-decoration: underline; text-decoration-color: rgba(0,0,0,.5); tex
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   gap: 8px; cursor: pointer; text-decoration: none; user-select: none;
-  padding: 12px 18px; border-radius: 999px; border: 1px solid var(--mlb-border);
-  background: #f9fafb; color: var(--mlb-fg); transition: background .2s, border-color .2s, transform .02s;
+  padding: 12px 18px; border-radius: 999px; border: 1px solid var(--mlb-btn-border);
+  background: var(--mlb-btn-bg); color: var(--mlb-fg); transition: background .2s, border-color .2s, transform .02s;
 }
-.btn:hover { background: #f3f4f6; border-color: #d1d5db; }
+.btn:hover { background: var(--mlb-btn-bg-hover); border-color: #d1d5db; }
 .btn:active { transform: translateY(1px); }
 .btn.primary { background: var(--mlb-accent); color: white; border-color: var(--mlb-accent); }
 .btn.primary:hover { background: #473dff; border-color: #473dff; }
@@ -114,3 +119,23 @@ nav.first { border: 0; height: 10px; }
 /* Pagination minimal */
 nav#postPagination { text-align: center; padding: 24px 0 0; }
 .pagination .button, .load-more.button { composes: btn from none; }
+
+/* Dark theme overrides */
+[data-skin-theme="dark"] {
+  color-scheme: dark;
+  --mlb-bg: #000000;
+  --mlb-fg: #ffffff;
+  --mlb-muted: #cac5ca;          /* regular text in dark */
+  --mlb-border: #313033;         /* subtle border in dark */
+  --mlb-accent: #584dff;
+  --mlb-accent-2: #e5e7eb;
+
+  --mlb-btn-bg: rgba(255,255,255,0.08);
+  --mlb-btn-bg-hover: rgba(255,255,255,0.14);
+  --mlb-btn-border: #313033;
+}
+
+[data-skin-theme="dark"] header { background: var(--mlb-bg); border-bottom-color: var(--mlb-border); }
+[data-skin-theme="dark"] a { color: var(--mlb-fg); }
+[data-skin-theme="dark"] .social-media-list a { color: var(--mlb-muted); }
+[data-skin-theme="dark"] footer.wrapper { border-top-color: var(--mlb-border); }

@@ -9,6 +9,7 @@ What changed
 How to toggle
 - Use the Metalab skin: set `skin: metalab` in `_config.yml` (already set).
 - Revert to the old skin: remove or change to any other value. The site falls back to the existing `css23` styles.
+ - Choose theme variant (Metalab skin only): set `skin_theme: light` or `skin_theme: dark` in `_config.yml`.
 
 Local testing with Jekyll
 - Build: `bundle exec jekyll build`
