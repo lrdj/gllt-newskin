@@ -6,15 +6,16 @@
 
 /* CSS custom properties */
 :root {
-  --mlb-bg: #ffffff;
-  --mlb-fg: #0e0e10;           /* near-black */
-  --mlb-muted: #6b7280;        /* gray-500 */
-  --mlb-border: #e5e7eb;       /* gray-200 */
-  --mlb-accent: #5b6cff;       /* modern blue */
-  --mlb-accent-2: #111827;     /* slate-900 */
+  /* Derived from metalab tokens */
+  --mlb-bg: #ffffff;           /* light theme base (metalab light variant) */
+  --mlb-fg: #000000;
+  --mlb-muted: #79767a;        /* matches text-subtle-invert */
+  --mlb-border: #c7c7c7;       /* border-subtle-invert */
+  --mlb-accent: #584dff;       /* purple */
+  --mlb-accent-2: #171717;     /* dark gray for emphasis */
 
-  --mlb-radius: 14px;
-  --mlb-radius-sm: 10px;
+  --mlb-radius: 12px;          /* ~1.2rem */
+  --mlb-radius-sm: 8px;        /* ~0.8rem */
 
   --mlb-maxw: 1120px;
   --mlb-pad: clamp(16px, 3vw, 32px);
@@ -29,7 +30,7 @@ body {
   margin: 0;
   color: var(--mlb-fg);
   background: var(--mlb-bg);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Apple Color Emoji", "Segoe UI Emoji";
   line-height: var(--mlb-leading);
   font-weight: 400;
 }
@@ -57,12 +58,11 @@ header {
   header { padding: 10px calc((100vw - var(--mlb-maxw)) / 2 + var(--mlb-pad)); }
 }
 
-#headernavLinks a { display: inline-flex; align-items: center; padding: 8px 10px; border: 0; background: transparent; }
-#headernavLinks img { height: 18px; opacity: 0.8; transition: opacity .2s ease; }
-#headernavLinks a:hover img { opacity: 1; }
+#headernavLinks a { display: inline-flex; align-items: center; padding: 10px 12px; border-radius: 999px; border: 1px solid transparent; color: var(--mlb-fg); text-decoration: none; }
+#headernavLinks a:hover { border-color: var(--mlb-border); background: #f9fafb; }
 
 /* Header brand text */
-#identity .brand { font-weight: 700; font-size: 16px; margin-left: 12px; letter-spacing: -0.01em; }
+#identity .brand { font-weight: 700; font-size: 16px; margin-left: 12px; letter-spacing: -0.01em; color: var(--mlb-fg); }
 
 /* Typography */
 h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.15; margin: 0 0 0.4em 0; }
@@ -73,8 +73,8 @@ p { margin: 0 0 1em 0; color: var(--mlb-fg); }
 .lead { font-size: clamp(18px, 2.3vw, 22px); color: var(--mlb-accent-2); }
 .muted { color: var(--mlb-muted); }
 
-a { color: var(--mlb-fg); text-decoration: underline; text-decoration-color: rgba(17,24,39,.25); text-underline-offset: 3px; }
-a:hover { text-decoration-color: var(--mlb-fg); }
+a { color: var(--mlb-fg); text-decoration: none; }
+a:hover { text-decoration: underline; text-decoration-color: rgba(0,0,0,.5); text-underline-offset: 3px; }
 
 /* Buttons */
 .btn {
@@ -85,8 +85,8 @@ a:hover { text-decoration-color: var(--mlb-fg); }
 }
 .btn:hover { background: #f3f4f6; border-color: #d1d5db; }
 .btn:active { transform: translateY(1px); }
-.btn.primary { background: var(--mlb-fg); color: white; border-color: var(--mlb-fg); }
-.btn.primary:hover { background: #1f2937; border-color: #1f2937; }
+.btn.primary { background: var(--mlb-accent); color: white; border-color: var(--mlb-accent); }
+.btn.primary:hover { background: #473dff; border-color: #473dff; }
 
 /* Cards */
 .card { border: 1px solid var(--mlb-border); border-radius: var(--mlb-radius); padding: 20px; background: white; box-shadow: 0 1px 0 rgba(0,0,0,0.04); }

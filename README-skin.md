@@ -22,3 +22,7 @@ Using actual metalab.com CSS
 Notes
 - Current header/footer markup is unchanged; the CSS is designed to make it cleaner. If you want a closer match, we can also swap header/footer includes behind the same `skin` switch.
 
+Fetched reference (for derivation only)
+- HTML: `assets/metalab/_fetched/home.html`
+- CSS: `assets/metalab/_fetched/main.css`
+- Derived tokens used: accent `#584dff`, border `#c7c7c7`, subtle text `#79767a`, rounded corners ~`8–12px`, spacing unit `1.6rem` equivalents.
