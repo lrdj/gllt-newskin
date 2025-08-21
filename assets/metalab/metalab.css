@@ -20,6 +20,13 @@
   font-display: swap;
 }
 @font-face {
+  /* Provide 350 weight by mapping to the 400 file */
+  font-family: 'Basis Grotesque Pro';
+  src: url('/assets/metalab/fonts/basis-grotesque-regular-pro.7681336c.woff2') format('woff2');
+  font-weight: 350;
+  font-display: swap;
+}
+@font-face {
   font-family: 'Basis Grotesque Pro';
   src: url('/assets/metalab/fonts/basis-grotesque-medium-pro.efcacb00.woff2') format('woff2');
   font-weight: 500;
@@ -106,6 +113,7 @@ body {
   font-family: var(--mlb-font-sans);
   line-height: var(--mlb-leading);
   font-weight: 400;
+  letter-spacing: -0.005em;
   }
 
 img, video, svg { max-width: 100%; height: auto; }
@@ -131,7 +139,7 @@ header {
   header { padding: 10px calc((100vw - var(--mlb-maxw)) / 2 + var(--mlb-pad)); }
 }
 
-#headernavLinks a { display: inline-flex; align-items: center; padding: 10px 12px; border-radius: 999px; border: 1px solid transparent; color: var(--mlb-fg); text-decoration: none; }
+#headernavLinks a { display: inline-flex; align-items: center; padding: 10px 12px; border-radius: 999px; border: 1px solid transparent; color: var(--mlb-fg); text-decoration: none; font-weight: 350; letter-spacing: -0.01em; }
 #headernavLinks a:hover { border-color: var(--mlb-border); background: #f9fafb; }
 
 /* Header brand text */
@@ -142,9 +150,9 @@ h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.1; margin: 0 0 0.4em 0; }
 h1, h2 { font-family: var(--mlb-font-display); font-weight: 400; }
 h1 { font-size: clamp(4.0rem, 6vw, 7.0rem); }
 h2 { font-size: clamp(3.0rem, 4.5vw, 4.6rem); }
-h3 { font-size: clamp(2.2rem, 3.5vw, 2.8rem); font-weight: 600; }
+h3 { font-size: clamp(2.2rem, 3.5vw, 2.8rem); font-weight: 500; }
 p { margin: 0 0 1em 0; color: var(--mlb-fg); }
-.lead { font-size: clamp(2.0rem, 2.3vw, 2.2rem); color: var(--mlb-accent-2); }
+.lead { font-size: clamp(2.0rem, 2.3vw, 2.2rem); color: var(--mlb-accent-2); letter-spacing: -0.005em; }
 .muted { color: var(--mlb-muted); }
 
 /* Emphasis / editorial utils */
@@ -161,7 +169,7 @@ a:hover { text-decoration: underline; text-decoration-color: rgba(0,0,0,.5); tex
   display: inline-flex; align-items: center; justify-content: center;
   gap: 8px; cursor: pointer; text-decoration: none; user-select: none;
   padding: 12px 18px; border-radius: 999px; border: 1px solid var(--mlb-btn-border);
-  background: var(--mlb-btn-bg); color: var(--mlb-fg); transition: background .2s, border-color .2s, transform .02s;
+  background: var(--mlb-btn-bg); color: var(--mlb-fg); transition: background .2s, border-color .2s, transform .02s; font-weight: 350; letter-spacing: -0.01em;
 }
 .btn:hover { background: var(--mlb-btn-bg-hover); border-color: #d1d5db; }
 .btn:active { transform: translateY(1px); }
@@ -222,8 +230,11 @@ nav#postPagination { text-align: center; padding: 24px 0 0; }
 .btn#mlbThemeToggle .icon-moon { display: none; }
 .btn#mlbThemeToggle.is-dark .icon-sun { display: none; }
 .btn#mlbThemeToggle.is-dark .icon-moon { display: inline; }
-  .lg-col-3{ grid-column: span 3 / span 3; }
+.lg-col-3{ grid-column: span 3 / span 3; }
 }
+
+/* Font weight utility */
+.fw-350 { font-weight: 350; }
 
 /* Dark theme overrides */
 [data-skin-theme="dark"] {
