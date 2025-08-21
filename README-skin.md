@@ -35,3 +35,13 @@ Utilities and classes
 - Container: wrap sections in `mlb-container`.
 - Grid: add `mlb-grid` to a container then use `col-12/6/4/3` plus responsive `md-col-*`, `lg-col-*`.
 - Typography: `kicker`, `eyebrow`, `lede`, `overline` for emphasis.
+
+Licensed fonts (optional)
+- Metalab uses Basis Grotesque Pro (sans) and PP Eiko (display). These are licensed; not bundled here.
+- If you have licenses, place files in `assets/metalab/fonts/` with these names:
+  - `basis-grotesque-off-white-pro.woff2` (weight 300)
+  - `basis-grotesque-regular-pro.woff2` (weight 400)
+  - `basis-grotesque-medium-pro.woff2` (weight 500)
+  - `ppeiko-light.woff2` (weight 300)
+  - `ppeiko-regular.woff2` (weight 400)
+- The CSS already has `@font-face` entries for these. If files are present, they’ll be used; otherwise it falls back to Inter + DM Serif Display.
