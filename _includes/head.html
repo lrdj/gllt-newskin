@@ -9,6 +9,15 @@
   Defaults to existing 2023 CSS if not set.
   {%- endcomment -%}
   {%- if site.skin == 'metalab' -%}
+    <script>
+      // Initialise theme early to reduce FOUC
+      (function(){
+        try {
+          var t = localStorage.getItem('mlbTheme') || '{{ site.skin_theme | default: "light" }}';
+          document.documentElement.setAttribute('data-skin-theme', t);
+        } catch(e) {}
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     {# Local system font stack will be used if offline #}
@@ -20,4 +29,3 @@
     <link rel="stylesheet" type="text/css" href="/css23/leadership.css">
   {%- endif -%}
 </head>
-

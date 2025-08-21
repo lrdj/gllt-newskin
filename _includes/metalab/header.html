@@ -7,6 +7,24 @@
     <a href="/about.html">About</a>
     <a href="/">Blog</a>
     <a href="/cases/">Cases</a>
+    <button id="mlbThemeToggle" class="btn" aria-label="Toggle theme" title="Toggle theme">
+      <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
   </nav>
 </header>
-
+<script>
+  (function(){
+    var btn = document.getElementById('mlbThemeToggle');
+    if(!btn) return;
+    function setTheme(val){
+      document.documentElement.setAttribute('data-skin-theme', val);
+      if(document.body) document.body.setAttribute('data-skin-theme', val);
+      try { localStorage.setItem('mlbTheme', val); } catch(e) {}
+      btn.classList.toggle('is-dark', val === 'dark');
+    }
+    var current = (function(){ try { return localStorage.getItem('mlbTheme'); } catch(e) { return null; } })() || document.documentElement.getAttribute('data-skin-theme') || 'light';
+    setTheme(current);
+    btn.addEventListener('click', function(){ setTheme((document.documentElement.getAttribute('data-skin-theme') === 'dark') ? 'light' : 'dark'); });
+  })();
+</script>
