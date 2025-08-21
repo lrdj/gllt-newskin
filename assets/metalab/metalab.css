@@ -4,6 +4,36 @@
   Toggle via `skin: metalab` in _config.yml.
 */
 
+/* Fonts */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/metalab/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/metalab/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/metalab/fonts/-nFnOHM81r4j6k0gjAW3mujVU2B2K_c.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/metalab/fonts/-nFhOHM81r4j6k0gjAW3mujVU2B2G_Vx1w.ttf') format('truetype');
+}
+
 /* CSS custom properties */
 :root {
   /* Derived from metalab tokens */
@@ -28,6 +58,9 @@
   --mlb-btn-border: var(--mlb-border);
 }
 
+/* Root sizing to emulate Metalab scale */
+html { font-size: 62.5%; }
+
 /* Base reset-ish */
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -35,10 +68,10 @@ body {
   margin: 0;
   color: var(--mlb-fg);
   background: var(--mlb-bg);
-  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
   line-height: var(--mlb-leading);
   font-weight: 400;
-}
+  }
 
 img, video, svg { max-width: 100%; height: auto; }
 
@@ -70,13 +103,20 @@ header {
 #identity .brand { font-weight: 700; font-size: 16px; margin-left: 12px; letter-spacing: -0.01em; color: var(--mlb-fg); }
 
 /* Typography */
-h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.15; margin: 0 0 0.4em 0; }
-h1 { font-size: clamp(36px, 6vw, 60px); font-weight: 700; }
-h2 { font-size: clamp(28px, 4.5vw, 40px); font-weight: 700; }
-h3 { font-size: clamp(22px, 3.5vw, 28px); font-weight: 600; }
+h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.1; margin: 0 0 0.4em 0; }
+h1, h2 { font-family: "DM Serif Display", Georgia, "Times New Roman", serif; font-weight: 400; }
+h1 { font-size: clamp(4.0rem, 6vw, 7.0rem); }
+h2 { font-size: clamp(3.0rem, 4.5vw, 4.6rem); }
+h3 { font-size: clamp(2.2rem, 3.5vw, 2.8rem); font-weight: 600; }
 p { margin: 0 0 1em 0; color: var(--mlb-fg); }
-.lead { font-size: clamp(18px, 2.3vw, 22px); color: var(--mlb-accent-2); }
+.lead { font-size: clamp(2.0rem, 2.3vw, 2.2rem); color: var(--mlb-accent-2); }
 .muted { color: var(--mlb-muted); }
+
+/* Emphasis / editorial utils */
+.kicker { font-size: 1.2rem; letter-spacing: .12em; text-transform: uppercase; color: var(--mlb-muted); font-weight: 600; }
+.eyebrow { font-size: 1.2rem; letter-spacing: .16em; text-transform: uppercase; color: var(--mlb-muted); }
+.lede { font-size: clamp(2.0rem, 2.8vw, 2.4rem); color: var(--mlb-accent-2); line-height: 1.5; }
+.overline { font-size: 1.1rem; text-transform: uppercase; letter-spacing: .18em; color: var(--mlb-muted); }
 
 a { color: var(--mlb-fg); text-decoration: none; }
 a:hover { text-decoration: underline; text-decoration-color: rgba(0,0,0,.5); text-underline-offset: 3px; }
@@ -119,6 +159,32 @@ nav.first { border: 0; height: 10px; }
 /* Pagination minimal */
 nav#postPagination { text-align: center; padding: 24px 0 0; }
 .pagination .button, .load-more.button { composes: btn from none; }
+
+/* Grid utilities */
+.mlb-container { width: 100%; max-width: var(--mlb-maxw); margin: 0 auto; padding: 0 var(--mlb-pad); }
+.mlb-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-column-gap: 1.6rem; grid-row-gap: 1.6rem; }
+.col-12{ grid-column: span 12 / span 12; }
+.col-6{ grid-column: span 6 / span 6; }
+.col-4{ grid-column: span 4 / span 4; }
+.col-3{ grid-column: span 3 / span 3; }
+@media (min-width: 768px){
+  .md-col-12{ grid-column: span 12 / span 12; }
+  .md-col-8{ grid-column: span 8 / span 8; }
+  .md-col-6{ grid-column: span 6 / span 6; }
+  .md-col-4{ grid-column: span 4 / span 4; }
+  .md-col-3{ grid-column: span 3 / span 3; }
+}
+@media (min-width: 1120px){
+  .lg-col-9{ grid-column: span 9 / span 9; }
+  .lg-col-8{ grid-column: span 8 / span 8; }
+  .lg-col-6{ grid-column: span 6 / span 6; }
+  .lg-col-4{ grid-column: span 4 / span 4; }
+.btn#mlbThemeToggle { padding: 8px 10px; border-radius: 999px; background: transparent; border: 1px solid var(--mlb-border); }
+.btn#mlbThemeToggle .icon-moon { display: none; }
+.btn#mlbThemeToggle.is-dark .icon-sun { display: none; }
+.btn#mlbThemeToggle.is-dark .icon-moon { display: inline; }
+  .lg-col-3{ grid-column: span 3 / span 3; }
+}
 
 /* Dark theme overrides */
 [data-skin-theme="dark"] {

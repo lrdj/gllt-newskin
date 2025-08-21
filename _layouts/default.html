@@ -10,7 +10,9 @@
       {%- include 2023/header.html -%}
     {%- endif -%}
 
-        {{ content }}
+        <main class="mlb-container">
+          {{ content }}
+        </main>
     {%- if site.skin == 'metalab' -%}
       {%- include metalab/footer.html -%}
     {%- else -%}
