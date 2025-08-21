@@ -159,6 +159,10 @@ nav.first { border: 0; height: 10px; }
 /* Pagination minimal */
 nav#postPagination { text-align: center; padding: 24px 0 0; }
 .pagination .button, .load-more.button { composes: btn from none; }
+/* Media helpers */
+.ratio-16x9 { position: relative; width: 100%; padding-top: 56.25%; border-radius: var(--mlb-radius-sm); overflow: hidden; background-color: #e5e7eb; }
+.ratio-16x9.cover::before { content: ""; position: absolute; inset: 0; background-size: cover; background-position: center; background-image: var(--bg); }
+.block { display: block; }
 
 /* Grid utilities */
 .mlb-container { width: 100%; max-width: var(--mlb-maxw); margin: 0 auto; padding: 0 var(--mlb-pad); }

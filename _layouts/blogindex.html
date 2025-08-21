@@ -2,6 +2,55 @@
 layout: default
 ---
 
+{% if site.skin == 'metalab' %}
+
+<section class="section">
+  <div class="mlb-grid">
+    <div class="col-12 md-col-8">
+      <div class="kicker">Articles</div>
+      <h1>{{ page.title | default: 'Latest writing' }}</h1>
+      {% if page.intropara %}<p class="lede">{{ page.intropara }}</p>{% endif %}
+    </div>
+  </div>
+  {{ content }}
+  
+</section>
+
+{% if site.posts.size > 0 %}
+<section class="section">
+  <div class="mlb-grid">
+    {% for post in site.posts %}
+      {% if forloop.index == 1 %}
+        <article class="col-12 card">
+          {% if post.featured_image %}
+          <div class="ratio-16x9 cover" style="--bg:url('{{ post.featured_image }}');"></div>
+          {% endif %}
+          <div class="stack">
+            <div class="eyebrow">{{ post.date | date: "%b %e, %Y" }}</div>
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            {% if site.blogIndexSubtitles %}<p class="lede">{{ post.subtitle | default: post.excerpt | strip_html | truncatewords: 32 }}</p>{% endif %}
+          </div>
+        </article>
+      {% else %}
+        <article class="col-12 md-col-6 card">
+          {% if post.featured_image %}
+          <div class="ratio-16x9 cover" style="--bg:url('{{ post.featured_image }}');"></div>
+          {% endif %}
+          <div class="stack">
+            <div class="overline">{{ post.date | date: "%b %e, %Y" }}</div>
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            {% if site.blogIndexSubtitles %}<p>{{ post.subtitle | default: post.excerpt | strip_html | truncatewords: 20 }}</p>{% endif %}
+          </div>
+        </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <p class="rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+</section>
+{% endif %}
+
+{% else %}
+
 <div class="full header grey" id="head-bg-h">
   <div class="case-intro">
     <div class="large-12 columns">
@@ -113,4 +162,6 @@ layout: default
 
 
 </div>
+
+{% endif %}
 

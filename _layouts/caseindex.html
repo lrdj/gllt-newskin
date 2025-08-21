@@ -2,161 +2,49 @@
 layout: default
 ---
 
-<div class="full light-grey">
-  <div class="case-intro">
-    <div class="large-12 columns">
-      <div class="four spacing"></div>
-      <h2 class="head-title">
-        {%- if page.title -%}<span style="display:block;font-size:0.25em;height:2.5em;padding-left:0.2em;">Case studies</span>{{ page.title }}{%- else -%}Case studies{%- endif -%}</h2>
-    </div>
-    <div class="large-6 columns end">
-      {%- if page.subtitle -%}<p class='case-text-big'>{{ page.subtitle }}</p>{%- endif -%}
+{% if site.skin == 'metalab' %}
+
+<section class="section">
+  <div class="mlb-grid">
+    <div class="col-12 md-col-9">
+      <div class="kicker">Case Studies</div>
+      <h1>{{ page.title | default: 'Selected work' }}</h1>
+      {% if page.subtitle %}<p class="lede">{{ page.subtitle }}</p>{% endif %}
     </div>
   </div>
-</div>
-
-<script type="text/javascript">
-//  
-// store the visit to the index in local storage
-// https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
-// 
-
-localStorage.setItem('lastTheme', '{{- page.indexslug -}}');
-
-// Syntax for reading the localStorage item:
-// const cat = localStorage.getItem('myCat');
-// Syntax for removing the localStorage item:
-// localStorage.removeItem('myCat');
-// Syntax for removing all the localStorage items:
-// localStorage.clear();
-
-// const thisTheme = localStorage.getItem('lastTheme');
-// alert('This theme is: ' + thisTheme);
-
-</script>
-
+</section>
 
 {% assign cases = site.pages | where_exp: "case", "case.portfolio contains page.title" %}
 
-{% for case in cases %}
-
-{% assign evenodd = forloop.index | modulo:2 %}
-{% unless evenodd == 0 %}
-
-<!-- store the case number -->
-{%- capture casenumber -%}{%- cycle "1", "2", "3", "4", "5" -%}{%- endcapture -%}
-
-<div class="full no-sides no-top no-bottom case-table">
-
-    {%- if case.index_video -%}
-
-  <div id="case-{{- casenumber -}}" class="case-video">
-
-      {%- include video.html type="index" case=casenumber -%}
-      {%- capture maskpath -%}masks/m{{- casenumber -}}.html{%- endcapture -%}
-      {%- include {{maskpath}} -%}
-
+<section class="section">
+  <div class="mlb-grid">
+    {% for case in cases %}
+      <article class="col-12 md-col-6 lg-col-4 card">
+        {% assign image = case.index_image | default: case.hero_image %}
+        {% if image %}
+          <a href="{{ case.url }}" aria-label="{{ case.title }}" class="block">
+            <div class="ratio-16x9 cover" style="--bg:url('{{ image }}');"></div>
+          </a>
+        {% endif %}
+        <div class="stack">
+          <h3><a href="{{ case.url }}">{{ case.title }}</a></h3>
+          {% if case.subtitle %}<p class="muted">{{ case.subtitle }}</p>{% endif %}
+          <p><a class="btn" href="{{ case.url }}">View case study</a></p>
+        </div>
+      </article>
+    {% endfor %}
   </div>
-
-    {%- else -%}
-
-  <div id="case-{{- casenumber -}}" class="case-image">
-
-      {%- if case.index_image -%}
-        <img src="{{ case.index_image }}">
-      {%- else -%}
-        <img src="{{ case.hero_image }}">
-      {%- endif -%}
-
-  </div>
-
-    {%- endif -%}
-
-  <div class="case-table-content">
-    <h3><a href="{{ case.url }}">{{ case.title }}</a></h3>
-    <p>
-      {{ case.subtitle }}
-    </p>
-    <p>
-      <span class="styled-button-wrapper" id="case-{{- casenumber -}}-button">
-        <a href="{{ case.url }}" class="styled button">View case study</a>
-      </span>
-    </p>
-  </div>
-</div>
+</section>
 
 {% else %}
 
-<!-- store the case number -->
-{%- capture casenumber -%}{%- cycle "1", "2", "3", "4", "5" -%}{%- endcapture -%}
+<h1>{{ page.title | default: 'Case studies' }}</h1>
+{% assign cases = site.pages | where_exp: "case", "case.portfolio contains page.title" %}
+<ul>
+  {% for case in cases %}
+    <li><a href="{{ case.url }}">{{ case.title }}</a> {% if case.subtitle %}— {{ case.subtitle }}{% endif %}</li>
+  {% endfor %}
+</ul>
 
-<div class="full no-sides no-top no-bottom case-table">
-  <div class="case-table-content">
-    <h3><a href="{{ case.url }}">{{ case.title }}</a></h3>
-    <p>
-      {{ case.subtitle }}
-    </p>
-    <p>
-      <span class="styled-button-wrapper" id="case-{{- casenumber -}}-button">
-        <a href="{{ case.url }}" class="styled button">View case study</a>
-      </span>
-    </p>
-  </div>
-
-    {%- if case.index_video -%}
-
-  <div id="case-{{- casenumber -}}" class="case-video">
-
-      {%- include video.html type="index" case=casenumber -%}
-      {%- capture maskpath -%}masks/m{{- casenumber -}}.html{%- endcapture -%}
-      {%- include {{maskpath}} -%}
-
-  </div>
-
-    {%- else -%}
-
-  <div id="case-{{- casenumber -}}" class="case-image">
-
-      {%- if case.index_image -%}
-        <img src="{{ case.index_image }}">
-      {%- else -%}
-        <img src="{{ case.hero_image }}">
-      {%- endif -%}
-
-  </div>
-
-    {%- endif -%}
-
-</div>
-
-{% endunless %}
-
-{% endfor %}
-
-
-
-<!-- end of left/right loop sequence -->
-
-
-<div class="full grey no-right">
-  <a href="{{- site.url -}}/contact.html" id="bottom-call-to-action"></a>
-  <div class="case-intro">
-    <div class="large-12 columns">
-      <p class="case-text-big">Start your project</p>
-      <h2 class="case-title">Do you think I could help?</h2>
-    </div>
-  </div>
-</div>
-
-<div class="full">
-  <div class="case-intro">
-    <div class="large-12 columns" style="text-align: center;">
-      <p>{%- include case_indices.html -%}</p>
-    </div>
-  </div>
-</div>
-
-
-
-
+{% endif %}
 
