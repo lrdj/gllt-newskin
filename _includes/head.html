@@ -22,6 +22,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     {# Local system font stack will be used if offline #}
     <link rel="stylesheet" href="/assets/metalab/metalab.css">
+  {%- elsif site.skin == 'clean' -%}
+    <link rel="stylesheet" href="/assets/clean/clean.css">
   {%- else -%}
     <link rel="stylesheet" type="text/css" href="/css23/grid.css">
     <link rel="stylesheet" type="text/css" href="/css23/typography.css">

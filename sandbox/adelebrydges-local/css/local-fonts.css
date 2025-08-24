@@ -1,0 +1,58 @@
+/* Local font definitions to replace TypeKit fonts */
+
+@font-face {
+  font-family: 'minerva-modern';
+  src: url('../fonts/minerva-modern-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'minerva-modern';
+  src: url('../fonts/minerva-modern-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'minerva-modern';
+  src: url('../fonts/minerva-modern-400-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'minerva-modern';
+  src: url('../fonts/minerva-modern-700-italic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'anziano';
+  src: url('../fonts/anziano-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'anziano';
+  src: url('../fonts/anziano-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'anziano';
+  src: url('../fonts/anziano-400-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+

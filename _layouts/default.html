@@ -6,6 +6,8 @@
   <body class="{{ page.bodyclass }}"{% if site.skin == 'metalab' and site.skin_theme %} data-skin-theme="{{ site.skin_theme }}"{% endif %}>
     {%- if site.skin == 'metalab' -%}
       {%- include metalab/header.html -%}
+    {%- elsif site.skin == 'clean' -%}
+      {%- include clean/header.html -%}
     {%- else -%}
       {%- include 2023/header.html -%}
     {%- endif -%}
@@ -15,6 +17,8 @@
         </main>
     {%- if site.skin == 'metalab' -%}
       {%- include metalab/footer.html -%}
+    {%- elsif site.skin == 'clean' -%}
+      {%- include clean/footer.html -%}
     {%- else -%}
       {%- include 2023/footer.html -%}
     {%- endif -%}

@@ -1,0 +1,3 @@
+//assets.squarespace.com/universal/styles-compressed/commerce-98a41f09c7bd50ba-min.en-US.css
+https://static1.squarespace.com/static/versioned-site-css/65f7f20c7e77b5579c1a1552/79/5c5a519771c10ba3470d8101/65f7f20c7e77b5579c1a155f/1669/site.css
+https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/versioned-assets/1755876405066-8N47H6T336FVAQPESRYU/static.css

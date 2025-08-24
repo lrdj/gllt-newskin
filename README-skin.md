@@ -10,9 +10,10 @@ What changed
  - Grid utilities: 12-col CSS grid helpers (`mlb-container`, `mlb-grid`, `col-*`).
 
 How to toggle
-- Use the Metalab skin: set `skin: metalab` in `_config.yml` (already set).
+- Use the Metalab skin: set `skin: metalab` in `_config.yml`.
+- Use the Clean skin: set `skin: clean` in `_config.yml`.
 - Revert to the old skin: remove or change to any other value. The site falls back to the existing `css23` styles.
- - Choose theme variant (Metalab skin only): set `skin_theme: light` or `skin_theme: dark` in `_config.yml`.
+- Choose theme variant (Metalab skin only): set `skin_theme: light` or `skin_theme: dark` in `_config.yml`.
 
 Local testing with Jekyll
 - Build: `bundle exec jekyll build`
@@ -25,6 +26,11 @@ Using actual metalab.com CSS
 
 Notes
 - Current header/footer markup is unchanged; the CSS is designed to make it cleaner. If you want a closer match, we can also swap header/footer includes behind the same `skin` switch.
+
+Clean skin (new)
+- Files: `_includes/clean/header.html`, `_includes/clean/footer.html`, `assets/clean/clean.css`.
+- Style: neutral, simple typography and spacing, no JS, no theme toggle.
+- Works with current layout: `main` already has `mlb-container`; Clean defines compatible sizing.
 
 Fetched reference (for derivation only)
 - HTML: `assets/metalab/_fetched/home.html`
